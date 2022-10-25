@@ -34,7 +34,7 @@ scikit-learn = "~=1.1"
 scipy = "==1.8.1"
 # https://github.com/paperless-ngx/paperless-ngx/issues/1364
 numpy = "==1.22.3"
-whitenoise = "~=6.2"
+whitenoise = {version = "~=6.2", extras = ["brotli"]}
 watchdog = "~=2.1"
 whoosh="~=2.7"
 inotifyrecursive = "~=0.3"
