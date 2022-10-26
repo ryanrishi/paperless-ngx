@@ -33,11 +33,16 @@ branch_name=$(git rev-parse --abbrev-ref HEAD)
 # Required to use cache-from
 export DOCKER_BUILDKIT=1
 
-docker build --file "$1" \
+docker buildx build --file "$1" \
 	--progress=plain \
 	--cache-from ghcr.io/paperless-ngx/paperless-ngx/builder/cache/app:"${branch_name}" \
 	--cache-from ghcr.io/paperless-ngx/paperless-ngx/builder/cache/app:dev \
+	--cache-from ghcr.io/paperless-ngx/builder/cache/qpdf:"${qpdf_version}" \
+	--cache-from ghcr.io/paperless-ngx/builder/cache/pikepdf:"${pikepdf_version}" \
+	--cache-from ghcr.io/paperless-ngx/builder/cache/jbig2enc:"${jbig2enc_version}" \
+	--cache-from ghcr.io/paperless-ngx/builder/cache/psycopg2:"${psycopg2_version}" \
 	--build-arg JBIG2ENC_VERSION="${jbig2enc_version}" \
 	--build-arg QPDF_VERSION="${qpdf_version}" \
 	--build-arg PIKEPDF_VERSION="${pikepdf_version}" \
-	--build-arg PSYCOPG2_VERSION="${psycopg2_version}" "${@:2}" .
+	--build-arg PSYCOPG2_VERSION="${psycopg2_version}" \
+	"${@:2}" .

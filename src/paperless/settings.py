@@ -170,7 +170,7 @@ MIDDLEWARE = [
 ]
 
 # Enable whitenoise compression and caching
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 ROOT_URLCONF = "paperless.urls"
 
