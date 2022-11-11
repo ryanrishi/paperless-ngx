@@ -166,13 +166,8 @@ export class AppComponent implements OnInit, OnDestroy {
       },
       {
         anchorId: 'tour.settings',
-        content: $localize`Check out the settings for various tweaks to the web app or to toggle settings for saved views.`,
+        content: $localize`Check out the settings for various tweaks to the web app, toggle settings for saved views or setup e-mail checking.`,
         route: '/settings',
-        enableBackdrop: true,
-      },
-      {
-        anchorId: 'tour.admin',
-        content: $localize`The Admin area contains more advanced controls as well as the settings for automatic e-mail fetching.`,
         enableBackdrop: true,
       },
       {
